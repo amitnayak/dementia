@@ -1,0 +1,51 @@
+{
+  "expo": {
+    "name": "dementia",
+    "slug": "dementia",
+    "version": "1.0.1",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "runtimeVersion": "51.0.0",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/images/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.db.dementia"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.db.dementia"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "ee29a9b7-5094-4f65-b01d-b951cee94e8c"
+      }
+    },
+    "owner": "amitnayak",
+    "updates": {
+      "url": "https://u.expo.dev/ee29a9b7-5094-4f65-b01d-b951cee94e8c"
+    }
+  }
+}
