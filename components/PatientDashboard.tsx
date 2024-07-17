@@ -2,19 +2,45 @@ import { Image, StyleSheet, Platform, Button, View, Text } from 'react-native';
 import { ThemedText } from './ThemedText';
 import { GestureHandlerRootView, TextInput } from 'react-native-gesture-handler';
 import React, { useState } from 'react';
+//import { Avatar } from 'react-native-elements';
 
 export function PatientDashboard({ navigation }:any) {
   const [userName, onUserNameChange] = React.useState('');
   const [password, onPasswordChange] = React.useState('');
   const [confirmPassword, onConfirmPasswordChange] = useState('');
 
+ 
   const patientName ="test";
   const patientAge ="50";
   const careTakerContact ="0000000000";
 
-  const patientList  = [{name: 'Name1', loc: 'Loc1'}, {name: 'Name2', loc: 'Loc2'}, {name: 'Name3', loc: 'Loc3'}]
+  const patientList  = [{name: 'Name1', loc: 'Loc1'}, {name: 'Name2', loc: 'Loc2'}, {name: 'Name3', loc: 'Loc3'}];
+  const mspList  = [{name: 'MSP Name1', loc: 'Loc1'}, {name: 'MSP Name2', loc: 'Loc2'}, {name: 'MSP Name3', loc: 'Loc3'}]
   let patientsRenderList = [];
-  
+  let mspRenderList = [];
+
+  for(let i = 0; i < patientList.length; i++){
+    patientsRenderList.push(
+        <View key = {i}>
+            <View style={{ flexDirection:"row" }} >
+                <Text style={styles.item}> {patientList[i].name}</Text>
+                <Text style={styles.item}> {patientList[i].loc}</Text>
+            </View>
+        </View>
+    )
+  }
+
+  for(let i = 0; i < mspList.length; i++){
+    mspRenderList.push(
+        <View key = {i}>
+            <View style={{ flexDirection:"row" }} >
+                <Text style={styles.item}> {mspList[i].name}</Text>
+                <Text style={styles.item}> {mspList[i].loc}</Text>
+            </View>
+        </View>
+    )
+  }
+
 
   const handleChangeLoc = () => {
 
@@ -29,6 +55,13 @@ export function PatientDashboard({ navigation }:any) {
         <View style={styles.container}>
           <View style={{flexDirection: 'row'}}>
               <View>
+              {/* <Avatar icon={{name: 'user', type: 'font-awesome'}}
+              size="large"
+              showEditButton="true"
+              onPress={() => console.log("Works!")}
+              // activeOpacity={0.7}
+              
+              /> */}
                 <Image source={require("@/assets/images/patient-profile.jpg")} style={styles.profileImg} />
               </View>
               <View>
@@ -62,34 +95,22 @@ export function PatientDashboard({ navigation }:any) {
             <View>
               <View>
                 <Text style={styles.subHeading}>Patient around me (10 km radius)</Text>
+                {patientsRenderList}
               </View>
             </View>
-          {/* <View>
-            <Text style={styles.textStyle}>Password:</Text>
-              <TextInput
-                secureTextEntry={true}
-                style={styles.input}
-                onChangeText={onPasswordChange}
-                value={password}
-              />
-          </View>
-          <View>
-            <Text style={styles.textStyle}>Confrim Password:</Text>
-              <TextInput
-                secureTextEntry={true}
-                style={styles.input}
-                onChangeText={onConfirmPasswordChange}
-                value={confirmPassword}
-              />
-          </View>
-          <View style={{ flexDirection:"row" }} >
-            <View style={styles.buttonStyle}>
-              <Button title="Login" onPress={handleLogin} />
+            <View>
+              <View>
+                <Text style={styles.subHeading}>Help around me</Text>
+                {mspRenderList}
+              </View>
             </View>
-            <View style={styles.buttonStyle} >
-              <Button title="Reset" onPress={handleReset} />
+            <View>
+              <View>
+                <Text style={styles.subHeading}>Discussion Forum</Text>
+                {mspRenderList}
+              </View>
             </View>
-          </View> */}
+          
         </View> 
       </GestureHandlerRootView>
   );
@@ -98,7 +119,8 @@ export function PatientDashboard({ navigation }:any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop:60
+    marginTop:60,
+    padding:10
     // alignItems: 'center',
     //justifyContent:'center'
   },
@@ -122,5 +144,9 @@ const styles = StyleSheet.create({
   subHeading: {
     fontSize: 20,
     fontWeight:'500'
+  },
+  item: {
+    fontSize:16,
+    padding:5
   }
 });
