@@ -246,9 +246,12 @@ export function PatientSignupView({ navigation }:any) {
                   value={confirmPassword}
                 />
             </SafeAreaView>
-            <View style={{ flexDirection:"row" }} >
+            <View style={{ flexDirection:"row", justifyContent: "center" }} >
               <View style={styles.buttonStyle}>
                 <Button title="Register" onPress={handleLogin} />
+              </View>
+              <View style={styles.buttonStyle}>
+                <Button title="Reset" onPress={handleReset} />
               </View>
             </View>
           </View> 

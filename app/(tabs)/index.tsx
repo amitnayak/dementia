@@ -11,6 +11,7 @@ import { DashboardView } from "@/components/DashboardView";
 import { LoginView } from "@/components/LoginView";
 import { VolunteerRegistration } from "@/components/VolunteerRegistration";
 import { PatientSignupView } from "@/components/PatientSignupView";
+import { PatientDashboard } from "@/components/PatientDashboard";
 
 const Stack = createNativeStackNavigator();
 //const Drawer = createDrawerNavigator();
@@ -30,14 +31,9 @@ export default function HomeScreen() {
           <Stack.Screen name="Dashboard" component={DashboardView} />
           <Stack.Screen name="Register" component={RegisterView} />
           <Stack.Screen name="Login" component={LoginView} />
-          <Stack.Screen
-            name="PatientSignupView"
-            component={PatientSignupView}
-          />
-          <Stack.Screen
-            name="VolunteerRegistration"
-            component={VolunteerRegistration}
-          />
+          <Stack.Screen name="PatientSignupView" component={PatientSignupView} />
+          <Stack.Screen name="VolunteerRegistration" component={VolunteerRegistration} />
+          <Stack.Screen name="PatientDashboard" component={PatientDashboard} />
         </Stack.Navigator>
       </NavigationContainer>
     </>

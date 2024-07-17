@@ -264,21 +264,30 @@ export function VolunteerRegistration({ navigation }: any) {
             onChangeText={onYourLocationChange}
             value={yourLocation}
           />
-          <Text style={styles.textStyle}>Enter preferred username:</Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.textStyle}>Enter preferred username:</Text>
+            <Text style={styles.mandatoryFieldStyle}>*</Text>
+          </View>
           <TextInput
             secureTextEntry={true}
             style={styles.input}
             onChangeText={onUserNameChange}
             value={username}
           />
-          <Text style={styles.textStyle}>Password:</Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.textStyle}>Password:</Text>
+            <Text style={styles.mandatoryFieldStyle}>*</Text>
+          </View>
           <TextInput
             secureTextEntry={true}
             style={styles.input}
             onChangeText={onPasswordChange}
             value={password}
           />
-          <Text style={styles.textStyle}>Confirm Password:</Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.textStyle}>Confirm Password:</Text>
+            <Text style={styles.mandatoryFieldStyle}>*</Text>
+          </View>
           <TextInput
             secureTextEntry={true}
             style={styles.input}

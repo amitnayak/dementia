@@ -58,12 +58,6 @@ export function DashboardView({ navigation }: any) {
         </View>
         <View style={styles.buttonStyle}>
           <Button
-            title="Sign-Up as a Patient"
-            onPress={handleSignupPatient}
-          />
-        </View>
-        <View style={styles.buttonStyle}>
-          <Button
             title="Sign-Up as a medical Service Provider/Volunteer"
             onPress={handleSignupVolunteer}
           />

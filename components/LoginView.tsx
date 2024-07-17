@@ -7,12 +7,19 @@ import React from 'react';
 export function LoginView({ navigation }:any) {
     const [userName, setUsername] = React.useState('');
     const [password, setPassword] = React.useState('');
-    const loginApi = "";
+    const loginApi = "http://192.168.1.7:8080";
     const handleLogin = () => {
-      // fetch(loginApi)
-      // .then(response => response.json())
-      // .then(data => console.log(data))
-      // .catch(error => console.error(error));
+      fetch(loginApi)
+      //.then(response => response.json())
+      .then(data => {
+        if(data.status ===200){
+          console.log("success");
+          navigation.navigate("PatientDashboard");
+        }
+        console.log(data);
+        //navigation.navigate("Register");
+      })
+      .catch(error => console.error(error));
       console.log("usernem"+ userName);
     }
 
