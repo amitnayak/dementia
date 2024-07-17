@@ -12,6 +12,7 @@ import Animated from 'react-native-reanimated';
 import { RegisterView } from '@/components/RegisterView';
 import { DashboardView } from '@/components/DashboardView';
 import { LoginView } from '@/components/LoginView';
+import { PatientSignupView } from '@/components/PatientSignupView';
 
 const Stack = createNativeStackNavigator()
 //const Drawer = createDrawerNavigator();
@@ -31,7 +32,7 @@ export default function HomeScreen() {
         <Stack.Navigator initialRouteName="Dashboard">
           <Stack.Screen name="Dashboard" component={DashboardView} />
           <Stack.Screen name="Register" component={RegisterView} />
-          <Stack.Screen name="Login" component={LoginView} />
+          <Stack.Screen name="Login" component={PatientSignupView} /> 
         </Stack.Navigator>
       </NavigationContainer>
     </>
