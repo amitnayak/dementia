@@ -6,6 +6,7 @@ import {
   View,
   Text,
   BackHandler,
+  ScrollView
 } from "react-native";
 import { ThemedText } from "./ThemedText";
 import {
@@ -119,6 +120,9 @@ const styles = StyleSheet.create({
   mandatoryFieldStyle: {
     color: "red",
   },
+  scrollView: {
+    marginHorizontal: 10
+  }
 });
 
 export function VolunteerRegistration({ navigation }: any) {
@@ -140,11 +144,13 @@ export function VolunteerRegistration({ navigation }: any) {
 
   return (
     <GestureHandlerRootView>
+      <ScrollView style={styles.scrollView}>
       <View style={styles.container}>
         <SafeAreaView>
-          <Text style={styles.textStyle}>
-            Name<span style={styles.mandatoryFieldStyle}>*</span>
-          </Text>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={styles.textStyle}>Name</Text>
+          <Text style={styles.mandatoryFieldStyle}>*</Text>
+          </View>
           <TextInput
             style={styles.input}
             onChangeText={onNameChange}
@@ -152,9 +158,11 @@ export function VolunteerRegistration({ navigation }: any) {
           />
         </SafeAreaView>
         <SafeAreaView>
+        <View style={{flexDirection: 'row'}}>
           <Text style={styles.textStyle}>
-            Profession<span style={styles.mandatoryFieldStyle}>*</span>
-          </Text>
+            Profession
+          </Text><Text style={styles.mandatoryFieldStyle}>*</Text>
+          </View>
           <Dropdown
             data={professionDropDownData}
             placeholder="Select profession"
@@ -174,9 +182,12 @@ export function VolunteerRegistration({ navigation }: any) {
           />
         </SafeAreaView>
         <SafeAreaView>
-          <Text style={styles.textStyle}>
-            Gender<span style={styles.mandatoryFieldStyle}>*</span>
-          </Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.textStyle}>
+              Gender
+            </Text>
+            <Text style={styles.mandatoryFieldStyle}>*</Text>
+          </View>
           <Dropdown
             data={genderDropDownData}
             style={styles.dropdown}
@@ -194,10 +205,12 @@ export function VolunteerRegistration({ navigation }: any) {
               setIsFocus(false);
             }}
           />
-          <Text style={styles.textStyle}>
-            Available days of week
-            <span style={styles.mandatoryFieldStyle}>*</span>
-          </Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.textStyle}>
+              Available days of week
+            </Text>
+            <Text style={styles.mandatoryFieldStyle}>*</Text>
+          </View>
           <Dropdown
             data={availableDoWDropDownData}
             style={styles.dropdown}
@@ -215,27 +228,36 @@ export function VolunteerRegistration({ navigation }: any) {
               setIsFocus(false);
             }}
           />
-          <Text style={styles.textStyle}>
-            Email<span style={styles.mandatoryFieldStyle}>*</span>
-          </Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.textStyle}>
+              Email
+            </Text>
+            <Text style={styles.mandatoryFieldStyle}>*</Text>
+          </View>
           <TextInput
             secureTextEntry={true}
             style={styles.input}
             onChangeText={onEmailChange}
             value={email}
           />
-          <Text style={styles.textStyle}>
-            Contact<span style={styles.mandatoryFieldStyle}>*</span>
-          </Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.textStyle}>
+              Contact
+            </Text>
+            <Text style={styles.mandatoryFieldStyle}>*</Text>
+          </View>
           <TextInput
             secureTextEntry={true}
             style={styles.input}
             onChangeText={onContactChange}
             value={contact}
           />
-          <Text style={styles.textStyle}>
-            Your location<span style={styles.mandatoryFieldStyle}>*</span>
-          </Text>
+          <View style={{flexDirection: 'row'}}>
+            <Text style={styles.textStyle}>
+              Your location
+            </Text>
+            <Text style={styles.mandatoryFieldStyle}>*</Text>
+          </View>
           <TextInput
             secureTextEntry={true}
             style={styles.input}
@@ -279,6 +301,7 @@ export function VolunteerRegistration({ navigation }: any) {
           </View>
         </View>
       </View>
+      </ScrollView>
     </GestureHandlerRootView>
   );
 }
