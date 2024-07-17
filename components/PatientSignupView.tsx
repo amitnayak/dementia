@@ -60,7 +60,7 @@ export function PatientSignupView({ navigation }:any) {
         <GestureHandlerRootView>
             <ScrollView style={styles.scrollView}>
           <View style={styles.container}>
-            <SafeAreaView>
+            <View>
                 <View style={{flexDirection: 'row'}}>
                     <Text style={styles.textStyle}>Patient Name:</Text>
                     <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -70,8 +70,8 @@ export function PatientSignupView({ navigation }:any) {
                   onChangeText={onPatientNameChange}
                   value={patientName}
                 />
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
               <Text style={styles.textStyle}>Patient Age:</Text>
               <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -82,8 +82,8 @@ export function PatientSignupView({ navigation }:any) {
                   onChangeText={onAgeChange}
                   value={number}
                 />
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
                 <Text style={styles.textStyle}>Patient Gender:</Text>
                 <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -108,8 +108,8 @@ export function PatientSignupView({ navigation }:any) {
                     setIsFocus(false);
                 }}
                 />
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
                 <Text style={styles.textStyle}>Caretaker Name:</Text>
                 <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -119,8 +119,8 @@ export function PatientSignupView({ navigation }:any) {
                   onChangeText={onCaretakerNameChange}
                   value={caretakerName}
                 />
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
                 <Text style={styles.textStyle}>Caretaker Email:</Text>
                 <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -130,8 +130,8 @@ export function PatientSignupView({ navigation }:any) {
                   onChangeText={onCaretakerEmailChange}
                   value={caretakerEmail}
                 />
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
               <Text style={styles.textStyle}>Caretaker Contact:</Text>
                 <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -141,14 +141,13 @@ export function PatientSignupView({ navigation }:any) {
                   onChangeText={onCaretakerContactChange}
                   value={caretakerContact}
                 />
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
                 <Text style={styles.heading}>Provide medical condition details</Text>
-                <Text style={styles.mandatoryFieldStyle}>*</Text>
             </View>
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
                 <Text style={styles.textStyle}>Dementia Type:</Text>
                 <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -174,8 +173,8 @@ export function PatientSignupView({ navigation }:any) {
                         setIsFocus(false);
                     }}
                     />
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
                 <Text style={styles.textStyle}>Stage:</Text>
                 <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -201,8 +200,8 @@ export function PatientSignupView({ navigation }:any) {
                         setIsFocus(false);
                     }}
                     />
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
               <Text style={styles.textStyle}>Condition Description:</Text>
                 <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -212,8 +211,8 @@ export function PatientSignupView({ navigation }:any) {
                   onChangeText={onConditonDescChange}
                   value={conditionDesc}
                 />
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
               <Text style={styles.textStyle}>Preferred Username</Text>
                 <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -223,8 +222,8 @@ export function PatientSignupView({ navigation }:any) {
                   onChangeText={onUsernameChange}
                   value={username}
                 />
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
               <Text style={styles.textStyle}>Password</Text>
                 <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -234,8 +233,8 @@ export function PatientSignupView({ navigation }:any) {
                   onChangeText={onPasswordChange}
                   value={password}
                 />
-            </SafeAreaView>
-            <SafeAreaView>
+            </View>
+            <View>
             <View style={{flexDirection: 'row'}}>
               <Text style={styles.textStyle}>Confirm Password</Text>
                 <Text style={styles.mandatoryFieldStyle}>*</Text>
@@ -245,7 +244,7 @@ export function PatientSignupView({ navigation }:any) {
                   onChangeText={onConfirmPasswordChange}
                   value={confirmPassword}
                 />
-            </SafeAreaView>
+            </View>
             <View style={{ flexDirection:"row", justifyContent: "center" }} >
               <View style={styles.buttonStyle}>
                 <Button title="Register" onPress={handleLogin} />
@@ -284,7 +283,7 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     borderWidth: 1,
     padding: 10,
-    borderRadius: 10
+    //borderRadius: 10
   },
   buttonStyle: {
     margin:10
