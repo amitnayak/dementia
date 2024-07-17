@@ -5,46 +5,55 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import React from 'react';
 
 export function LoginView({ navigation }:any) {
-    const [userName, onUserNameChange] = React.useState('');
-    const [password, onPasswordChange] = React.useState('');
-
+    const [userName, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const loginApi = "";
     const handleLogin = () => {
-
+      // fetch(loginApi)
+      // .then(response => response.json())
+      // .then(data => console.log(data))
+      // .catch(error => console.error(error));
+      console.log("usernem"+ userName);
     }
 
     const handleReset = () => {
-
+      setUsername('');
+      setPassword('');
     }
 
     return (
         <GestureHandlerRootView>
-          <View style={styles.container}>
-            <SafeAreaView>
-              <Text style={styles.textStyle}>User Name:</Text>
+          <SafeAreaView style={styles.container}>
+              <View style={styles.textContainer}>
+                <View style={{flexDirection: 'row'}}>
+                  <Text style={styles.textStyle}>User Name:</Text>
+                  <Text style={styles.mandatoryFieldStyle}>*</Text>
+                </View>
                 <TextInput
                   style={styles.input}
-                  onChangeText={onUserNameChange}
+                  onChangeText={setUsername}
                   value={userName}
                 />
-            </SafeAreaView>
-            <SafeAreaView>
-              <Text style={styles.textStyle}>Password:</Text>
+                <View style={{flexDirection: 'row'}}>
+                  <Text style={styles.textStyle}>Password:</Text>
+                  <Text style={styles.mandatoryFieldStyle}>*</Text>
+                </View>
                 <TextInput
-                  secureTextEntry={true}
                   style={styles.input}
-                  onChangeText={onPasswordChange}
+                  secureTextEntry={true}
+                  onChangeText={setPassword}
                   value={password}
                 />
-            </SafeAreaView>
-            <View style={{ flexDirection:"row" }} >
-              <View style={styles.buttonStyle}>
-                <Button title="Login" onPress={handleLogin} />
               </View>
-              <View style={styles.buttonStyle} >
-                <Button title="Reset" onPress={handleReset} />
+              <View style={{ flexDirection:"row", justifyContent:'center' }} >
+                <View style={styles.buttonStyle}>
+                  <Button title="Login" onPress={handleLogin} />
+                </View>
+                <View style={styles.buttonStyle} >
+                  <Button title="Reset" onPress={handleReset} />
+                </View>
               </View>
-            </View>
-          </View> 
+          </SafeAreaView> 
         </GestureHandlerRootView>
     );
 }
@@ -52,19 +61,30 @@ export function LoginView({ navigation }:any) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // alignItems: 'center',
-    justifyContent:'center'
+    //justifyContent:'center'
+    //alignItems : "center",
+    paddingTop: 100,
+    backgroundColor: "white"
+  },
+  textContainer : {
+    margin:10
   },
   textStyle: {
     marginLeft: 10,
+    alignItems: "flex-start"
   },
   input: {
     height: 40,
-    margin: 10,
+    marginTop: 10,
+    marginBottom:20,
     borderWidth: 1,
     padding: 10,
+    width:'100%',
   },
   buttonStyle: {
     margin:10
-  }
+  },
+  mandatoryFieldStyle: {
+    color: "red",
+  },
 });
