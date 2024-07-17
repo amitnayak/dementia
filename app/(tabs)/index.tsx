@@ -1,60 +1,61 @@
-import { Image, StyleSheet, Platform, Button } from 'react-native';
+import { Image, StyleSheet, Platform, Button } from "react-native";
 
 // import { HelloWave } from '@/components/HelloWave';
 // import ParallaxScrollView from '@/components/ParallaxScrollView';
 // import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+import { RegisterView } from "@/components/RegisterView";
+import { DashboardView } from "@/components/DashboardView";
+import { LoginView } from "@/components/LoginView";
+import { VolunteerRegistration } from "@/components/VolunteerRegistration";
 
-import Animated from 'react-native-reanimated';
-import { RegisterView } from '@/components/RegisterView';
-import { DashboardView } from '@/components/DashboardView';
-import { LoginView } from '@/components/LoginView';
-
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator();
 //const Drawer = createDrawerNavigator();
 
 export default function HomeScreen() {
   const handleResister = () => {
-    console.log("register")
-  }
+    console.log("register");
+  };
   const handleLogin = () => {
-    console.log("Log in")
-  }
+    console.log("Log in");
+  };
 
   return (
     <>
-    
-      <NavigationContainer independent={true} >
+      <NavigationContainer independent={true}>
         <Stack.Navigator initialRouteName="Dashboard">
           <Stack.Screen name="Dashboard" component={DashboardView} />
           <Stack.Screen name="Register" component={RegisterView} />
           <Stack.Screen name="Login" component={LoginView} />
+          <Stack.Screen
+            name="VolunteerRegistration"
+            component={VolunteerRegistration}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </>
-    
-//     <NavigationContainer independent={true}>
-//   <Stack.Navigator initialRouteName="Dashboard">
-//   <Stack.Screen name="Dashboard" component={DashboardView} />
-//   <Stack.Screen name="Register" component={RegisterView} />
-//     {/* <Stack.Screen name="Root" component={BottomTab} />
-//     <Drawer.Screen name="Home" component={HomePage} />
-//     <Drawer.Screen name="Profile" component={ProfilePage} />
-//     <Drawer.Screen name="Listing" component={ListingPage} />
-//     <Drawer.Screen name="LogOut" component={LogIn} /> */}
-//   </Stack.Navigator>
-// </NavigationContainer>
-      //      <ThemedView style={styles.stepContainer}>
-      //    {/* <ThemedText type="subtitle">Step 2: Explore</ThemedText> */}
-      //    <Button title="Register" onPress={handleResister} />
-      //    <Button title="Log in" onPress={handleLogin} />
-      //    {/* <ThemedText>
-      //      Tap the Explore tab to learn more about what's included in this starter app.
-      //    </ThemedText> */}
-      //  </ThemedView>
+
+    //     <NavigationContainer independent={true}>
+    //   <Stack.Navigator initialRouteName="Dashboard">
+    //   <Stack.Screen name="Dashboard" component={DashboardView} />
+    //   <Stack.Screen name="Register" component={RegisterView} />
+    //     {/* <Stack.Screen name="Root" component={BottomTab} />
+    //     <Drawer.Screen name="Home" component={HomePage} />
+    //     <Drawer.Screen name="Profile" component={ProfilePage} />
+    //     <Drawer.Screen name="Listing" component={ListingPage} />
+    //     <Drawer.Screen name="LogOut" component={LogIn} /> */}
+    //   </Stack.Navigator>
+    // </NavigationContainer>
+    //      <ThemedView style={styles.stepContainer}>
+    //    {/* <ThemedText type="subtitle">Step 2: Explore</ThemedText> */}
+    //    <Button title="Register" onPress={handleResister} />
+    //    <Button title="Log in" onPress={handleLogin} />
+    //    {/* <ThemedText>
+    //      Tap the Explore tab to learn more about what's included in this starter app.
+    //    </ThemedText> */}
+    //  </ThemedView>
     // <NavigationContainer independent={true}>
     //   <Stack.Navigator>
     //     <Stack.Screen name="Register" component={RegisterView} />
@@ -111,8 +112,8 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
   },
   stepContainer: {
@@ -124,6 +125,6 @@ const styles = StyleSheet.create({
     width: 290,
     bottom: 0,
     left: 0,
-    position: 'absolute',
+    position: "absolute",
   },
 });
