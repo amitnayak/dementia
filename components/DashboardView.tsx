@@ -1,7 +1,8 @@
-import { Image, StyleSheet, Platform, Button, View,Text } from 'react-native'
+import { Image, StyleSheet, Platform, Button, View,Text,ImageBackground } from 'react-native'
 import { ThemedView } from '@/components/ThemedView';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from './ThemedText';
+
 
 export function DashboardView({ navigation }:any) {
     const handleResister =() => {
@@ -11,38 +12,37 @@ export function DashboardView({ navigation }:any) {
     const handleLogin = () => {
         navigation.navigate('Login');
     }
+    const handleSignupPatient = () => {
+
+    }
+    const handleSignupVolunteer = () => {
+
+    }
 
     return (
         <>
-     <ParallaxScrollView
-       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-       headerImage={
-         <Image
-           source={require('@/assets/images/bg-img.jpg')}
-           style={styles.dashboardLogo}
-         />
-       }>
-  </ParallaxScrollView>
+        <View style={styles.container}>
+          <ImageBackground source={require('@/assets/images/bg-img.jpg')} resizeMode="cover" style={{width: '100%', height: '100%', backgroundColor:"transparent"}}>
+            <Text style={styles.text}>Dimentia Patient Care</Text>
+          </ImageBackground>
+        </View>
        <ThemedView style={styles.stepContainer}>
-         <ThemedText type="subtitle">Dementia Care</ThemedText>
-         <ThemedText>
-           This application helps Dimentia patient care takes
-           {/* Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-           Press{' '} */}
-           {/* <ThemedText type="defaultSemiBold">
-             {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-           </ThemedText>{' '}
-           to open developer tools. */}
+         <ThemedText type="subtitle" style={styles.gapTop}>Dementia Care</ThemedText>
+         <ThemedText style={styles.gapTop}>
+           This application helps Dimentia patient care taker
          </ThemedText>
        </ThemedView>
         <ThemedView style={styles.stepContainer}>
-         {/* <ThemedText type="subtitle">Step 2: Explore</ThemedText> */}
-         <Button title="Register" onPress={handleResister} />
-         <Button title="Log in" onPress={handleLogin} />
-         {/* <ThemedText>
-           Tap the Explore tab to learn more about what's included in this starter app.
-         </ThemedText> */}
-       </ThemedView>
+         <View style={styles.buttonStyle} >
+            <Button title="Login" onPress={handleLogin} />
+          </View>
+          <View style={styles.buttonStyle} >
+            <Button title="Sign-Up as a Patient" onPress={handleSignupPatient} />
+          </View>
+          <View style={styles.buttonStyle} >
+            <Button title="Sign-Up as a medical Service Provider/Volunteer" onPress={handleSignupVolunteer} />
+          </View>
+        </ThemedView>
        </>
     );
 }
@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+    // gap: 8,
+    // marginBottom: 8,
   },
   dashboardLogo: {
     height: 500,
@@ -63,4 +63,24 @@ const styles = StyleSheet.create({
     left: 0,
     position: 'absolute',
   },
+  buttonStyle: {
+    margin:10
+  },
+  image: {
+    flex: 1,
+    justifyContent: 'center',
+    resizeMode: 'cover'
+  },
+  text: {
+    color: 'white',
+    fontSize: 30,
+    lineHeight: 40,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    backgroundColor: '#000000c0',
+  },
+  gapTop: {
+    marginTop:10,
+    marginLeft: 10
+  }
 });
