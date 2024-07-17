@@ -10,18 +10,9 @@ import { RegisterView } from "@/components/RegisterView";
 import { DashboardView } from "@/components/DashboardView";
 import { LoginView } from "@/components/LoginView";
 import { VolunteerRegistration } from "@/components/VolunteerRegistration";
+import { PatientSignupView } from "@/components/PatientSignupView";
 
-<<<<<<< HEAD
-import Animated from 'react-native-reanimated';
-import { RegisterView } from '@/components/RegisterView';
-import { DashboardView } from '@/components/DashboardView';
-import { LoginView } from '@/components/LoginView';
-import { PatientSignupView } from '@/components/PatientSignupView';
-
-const Stack = createNativeStackNavigator()
-=======
 const Stack = createNativeStackNavigator();
->>>>>>> b0fec907121e2eb932e134c807ec34b14d25166b
 //const Drawer = createDrawerNavigator();
 
 export default function HomeScreen() {
@@ -38,15 +29,15 @@ export default function HomeScreen() {
         <Stack.Navigator initialRouteName="Dashboard">
           <Stack.Screen name="Dashboard" component={DashboardView} />
           <Stack.Screen name="Register" component={RegisterView} />
-<<<<<<< HEAD
-          <Stack.Screen name="Login" component={PatientSignupView} /> 
-=======
           <Stack.Screen name="Login" component={LoginView} />
+          <Stack.Screen
+            name="PatientSignupView"
+            component={PatientSignupView}
+          />
           <Stack.Screen
             name="VolunteerRegistration"
             component={VolunteerRegistration}
           />
->>>>>>> b0fec907121e2eb932e134c807ec34b14d25166b
         </Stack.Navigator>
       </NavigationContainer>
     </>

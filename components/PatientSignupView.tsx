@@ -16,6 +16,9 @@ export function PatientSignupView({ navigation }:any) {
     const [username, onUsernameChange] = React.useState('');
     const [password, onPasswordChange] = React.useState('');
     const [confirmPassword, onConfirmPasswordChange] = React.useState('');
+    const [gender, onGenderChange] = React.useState('');
+    const [dementiaType, onDementiaTypeChange] = React.useState('');
+    const [dementiaStage, ondementiaStageChange] = React.useState('');
 
     const [value, setValue] = React.useState();
     const [isFocus, setIsFocus] = React.useState(false);
@@ -92,27 +95,18 @@ export function PatientSignupView({ navigation }:any) {
                 inputSearchStyle={styles.inputSearchStyle}
                 iconStyle={styles.iconStyle}
                 data={genders}
-                search
-                maxHeight={300}
+                maxHeight={100}
                 labelField="label"
                 valueField="value"
                 placeholder={!isFocus ? 'Select gender' : '...'}
                 searchPlaceholder="Search..."
-                value={value}
+                value={gender}
                 onFocus={() => setIsFocus(true)}
                 onBlur={() => setIsFocus(false)}
                 onChange={item => {
-                    // setValue(i);
+                    onGenderChange(item.value);
                     setIsFocus(false);
                 }}
-                renderLeftIcon={() => (
-                    <AntDesign
-                    style={styles.icon}
-                    color={isFocus ? 'blue' : 'black'}
-                    name="Safety"
-                    size={20}
-                    />
-                )}
                 />
             </SafeAreaView>
             <SafeAreaView>
@@ -172,21 +166,13 @@ export function PatientSignupView({ navigation }:any) {
                     valueField="value"
                     placeholder={!isFocus ? 'Select type' : '...'}
                     searchPlaceholder="Search..."
-                    value={value}
+                    value={dementiaType}
                     onFocus={() => setIsFocus(true)}
                     onBlur={() => setIsFocus(false)}
                     onChange={item => {
-                        // setValue(i);
+                        onDementiaTypeChange(item.value);
                         setIsFocus(false);
                     }}
-                    renderLeftIcon={() => (
-                        <AntDesign
-                        style={styles.icon}
-                        color={isFocus ? 'blue' : 'black'}
-                        name="Safety"
-                        size={20}
-                        />
-                    )}
                     />
             </SafeAreaView>
             <SafeAreaView>
@@ -207,21 +193,13 @@ export function PatientSignupView({ navigation }:any) {
                     valueField="value"
                     placeholder={!isFocus ? 'Select type' : '...'}
                     searchPlaceholder="Search..."
-                    value={value}
+                    value={dementiaStage}
                     onFocus={() => setIsFocus(true)}
                     onBlur={() => setIsFocus(false)}
                     onChange={item => {
-                        // setValue(i);
+                        ondementiaStageChange(item.value);
                         setIsFocus(false);
                     }}
-                    renderLeftIcon={() => (
-                        <AntDesign
-                        style={styles.icon}
-                        color={isFocus ? 'blue' : 'black'}
-                        name="Safety"
-                        size={20}
-                        />
-                    )}
                     />
             </SafeAreaView>
             <SafeAreaView>

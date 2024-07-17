@@ -19,7 +19,9 @@ export function DashboardView({ navigation }: any) {
   const handleLogin = () => {
     navigation.navigate("Login");
   };
-  const handleSignupPatient = () => {};
+  const handleSignupPatient = () => {
+    navigation.navigate("PatientSignupView");
+  };
   const handleSignupVolunteer = () => {
     navigation.navigate("VolunteerRegistration");
   };
@@ -53,6 +55,12 @@ export function DashboardView({ navigation }: any) {
         </View>
         <View style={styles.buttonStyle}>
           <Button title="Sign-Up as a Patient" onPress={handleSignupPatient} />
+        </View>
+        <View style={styles.buttonStyle}>
+          <Button
+            title="Sign-Up as a Patient"
+            onPress={handleSignupPatient}
+          />
         </View>
         <View style={styles.buttonStyle}>
           <Button
