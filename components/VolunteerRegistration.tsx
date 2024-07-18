@@ -142,7 +142,9 @@ export function VolunteerRegistration({ navigation }: any) {
     navigation.navigate("MSPDashboard");
   };
 
-  const handleReset = () => {};
+  const handleReset = () => {
+    navigation.navigate("SupportPage");
+  };
 
   return (
     <GestureHandlerRootView>

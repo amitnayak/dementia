@@ -13,6 +13,7 @@ import { VolunteerRegistration } from "@/components/VolunteerRegistration";
 import { PatientSignupView } from "@/components/PatientSignupView";
 import { PatientDashboard } from "@/components/PatientDashboard";
 import { MSPDashboard } from "@/components/MSPDashboard";
+import { SupportPage } from "@/components/SupportPage";
 
 const Stack = createNativeStackNavigator();
 //const Drawer = createDrawerNavigator();
@@ -42,6 +43,7 @@ export default function HomeScreen() {
           />
           <Stack.Screen name="PatientDashboard" component={PatientDashboard} />
           <Stack.Screen name="MSPDashboard" component={MSPDashboard} />
+          <Stack.Screen name="SupportPage" component={SupportPage} />
         </Stack.Navigator>
       </NavigationContainer>
     </>
