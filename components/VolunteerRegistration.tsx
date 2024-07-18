@@ -6,7 +6,7 @@ import {
   View,
   Text,
   BackHandler,
-  ScrollView
+  ScrollView,
 } from "react-native";
 import { ThemedText } from "./ThemedText";
 import {
@@ -121,8 +121,8 @@ const styles = StyleSheet.create({
     color: "red",
   },
   scrollView: {
-    marginHorizontal: 10
-  }
+    marginHorizontal: 10,
+  },
 });
 
 export function VolunteerRegistration({ navigation }: any) {
@@ -138,178 +138,169 @@ export function VolunteerRegistration({ navigation }: any) {
   const [confirmPassword, onConfirmPasswordChange] = React.useState("");
   const [isFocus, setIsFocus] = React.useState(false);
 
-  const handleRegister = () => {};
+  const handleRegister = () => {
+    navigation.navigate("MSPDashboard");
+  };
 
   const handleReset = () => {};
 
   return (
     <GestureHandlerRootView>
       <ScrollView style={styles.scrollView}>
-      <View style={styles.container}>
-        <SafeAreaView>
-        <View style={{flexDirection: 'row'}}>
-          <Text style={styles.textStyle}>Name</Text>
-          <Text style={styles.mandatoryFieldStyle}>*</Text>
-          </View>
-          <TextInput
-            style={styles.input}
-            onChangeText={onNameChange}
-            value={name}
-          />
-        </SafeAreaView>
-        <SafeAreaView>
-        <View style={{flexDirection: 'row'}}>
-          <Text style={styles.textStyle}>
-            Profession
-          </Text><Text style={styles.mandatoryFieldStyle}>*</Text>
-          </View>
-          <Dropdown
-            data={professionDropDownData}
-            placeholder="Select profession"
-            style={styles.dropdown}
-            placeholderStyle={styles.placeholderStyle}
-            selectedTextStyle={styles.selectedTextStyle}
-            inputSearchStyle={styles.inputSearchStyle}
-            iconStyle={styles.iconStyle}
-            minHeight={50}
-            labelField="label"
-            value={profession}
-            valueField="value"
-            onChange={(item) => {
-              onProfessionChange(item.value);
-              setIsFocus(false);
+        <View style={styles.container}>
+          <SafeAreaView>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.textStyle}>Name</Text>
+              <Text style={styles.mandatoryFieldStyle}>*</Text>
+            </View>
+            <TextInput
+              style={styles.input}
+              onChangeText={onNameChange}
+              value={name}
+            />
+          </SafeAreaView>
+          <SafeAreaView>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.textStyle}>Profession</Text>
+              <Text style={styles.mandatoryFieldStyle}>*</Text>
+            </View>
+            <Dropdown
+              data={professionDropDownData}
+              placeholder="Select profession"
+              style={styles.dropdown}
+              placeholderStyle={styles.placeholderStyle}
+              selectedTextStyle={styles.selectedTextStyle}
+              inputSearchStyle={styles.inputSearchStyle}
+              iconStyle={styles.iconStyle}
+              minHeight={50}
+              labelField="label"
+              value={profession}
+              valueField="value"
+              onChange={(item) => {
+                onProfessionChange(item.value);
+                setIsFocus(false);
+              }}
+            />
+          </SafeAreaView>
+          <SafeAreaView>
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.textStyle}>Gender</Text>
+              <Text style={styles.mandatoryFieldStyle}>*</Text>
+            </View>
+            <Dropdown
+              data={genderDropDownData}
+              style={styles.dropdown}
+              placeholder="Select Gender"
+              placeholderStyle={styles.placeholderStyle}
+              selectedTextStyle={styles.selectedTextStyle}
+              inputSearchStyle={styles.inputSearchStyle}
+              iconStyle={styles.iconStyle}
+              minHeight={50}
+              labelField="label"
+              value={gender}
+              valueField="value"
+              onChange={(item) => {
+                onGenderChange(item.value);
+                setIsFocus(false);
+              }}
+            />
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.textStyle}>Available days of week</Text>
+              <Text style={styles.mandatoryFieldStyle}>*</Text>
+            </View>
+            <Dropdown
+              data={availableDoWDropDownData}
+              style={styles.dropdown}
+              placeholder="Select available days of week"
+              placeholderStyle={styles.placeholderStyle}
+              selectedTextStyle={styles.selectedTextStyle}
+              inputSearchStyle={styles.inputSearchStyle}
+              iconStyle={styles.iconStyle}
+              minHeight={50}
+              labelField="label"
+              value={availableDoW}
+              valueField="value"
+              onChange={(item) => {
+                onAvailableDoW(item.value);
+                setIsFocus(false);
+              }}
+            />
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.textStyle}>Email</Text>
+              <Text style={styles.mandatoryFieldStyle}>*</Text>
+            </View>
+            <TextInput
+              secureTextEntry={true}
+              style={styles.input}
+              onChangeText={onEmailChange}
+              value={email}
+            />
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.textStyle}>Contact</Text>
+              <Text style={styles.mandatoryFieldStyle}>*</Text>
+            </View>
+            <TextInput
+              secureTextEntry={true}
+              style={styles.input}
+              onChangeText={onContactChange}
+              value={contact}
+            />
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.textStyle}>Your location</Text>
+              <Text style={styles.mandatoryFieldStyle}>*</Text>
+            </View>
+            <TextInput
+              secureTextEntry={true}
+              style={styles.input}
+              onChangeText={onYourLocationChange}
+              value={yourLocation}
+            />
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.textStyle}>Enter preferred username:</Text>
+              <Text style={styles.mandatoryFieldStyle}>*</Text>
+            </View>
+            <TextInput
+              secureTextEntry={true}
+              style={styles.input}
+              onChangeText={onUserNameChange}
+              value={username}
+            />
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.textStyle}>Password:</Text>
+              <Text style={styles.mandatoryFieldStyle}>*</Text>
+            </View>
+            <TextInput
+              secureTextEntry={true}
+              style={styles.input}
+              onChangeText={onPasswordChange}
+              value={password}
+            />
+            <View style={{ flexDirection: "row" }}>
+              <Text style={styles.textStyle}>Confirm Password:</Text>
+              <Text style={styles.mandatoryFieldStyle}>*</Text>
+            </View>
+            <TextInput
+              secureTextEntry={true}
+              style={styles.input}
+              onChangeText={onConfirmPasswordChange}
+              value={confirmPassword}
+            />
+          </SafeAreaView>
+          <View
+            style={{
+              flexDirection: "row",
+              display: "flex",
+              justifyContent: "center",
             }}
-          />
-        </SafeAreaView>
-        <SafeAreaView>
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.textStyle}>
-              Gender
-            </Text>
-            <Text style={styles.mandatoryFieldStyle}>*</Text>
-          </View>
-          <Dropdown
-            data={genderDropDownData}
-            style={styles.dropdown}
-            placeholder="Select Gender"
-            placeholderStyle={styles.placeholderStyle}
-            selectedTextStyle={styles.selectedTextStyle}
-            inputSearchStyle={styles.inputSearchStyle}
-            iconStyle={styles.iconStyle}
-            minHeight={50}
-            labelField="label"
-            value={gender}
-            valueField="value"
-            onChange={(item) => {
-              onGenderChange(item.value);
-              setIsFocus(false);
-            }}
-          />
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.textStyle}>
-              Available days of week
-            </Text>
-            <Text style={styles.mandatoryFieldStyle}>*</Text>
-          </View>
-          <Dropdown
-            data={availableDoWDropDownData}
-            style={styles.dropdown}
-            placeholder="Select available days of week"
-            placeholderStyle={styles.placeholderStyle}
-            selectedTextStyle={styles.selectedTextStyle}
-            inputSearchStyle={styles.inputSearchStyle}
-            iconStyle={styles.iconStyle}
-            minHeight={50}
-            labelField="label"
-            value={availableDoW}
-            valueField="value"
-            onChange={(item) => {
-              onAvailableDoW(item.value);
-              setIsFocus(false);
-            }}
-          />
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.textStyle}>
-              Email
-            </Text>
-            <Text style={styles.mandatoryFieldStyle}>*</Text>
-          </View>
-          <TextInput
-            secureTextEntry={true}
-            style={styles.input}
-            onChangeText={onEmailChange}
-            value={email}
-          />
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.textStyle}>
-              Contact
-            </Text>
-            <Text style={styles.mandatoryFieldStyle}>*</Text>
-          </View>
-          <TextInput
-            secureTextEntry={true}
-            style={styles.input}
-            onChangeText={onContactChange}
-            value={contact}
-          />
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.textStyle}>
-              Your location
-            </Text>
-            <Text style={styles.mandatoryFieldStyle}>*</Text>
-          </View>
-          <TextInput
-            secureTextEntry={true}
-            style={styles.input}
-            onChangeText={onYourLocationChange}
-            value={yourLocation}
-          />
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.textStyle}>Enter preferred username:</Text>
-            <Text style={styles.mandatoryFieldStyle}>*</Text>
-          </View>
-          <TextInput
-            secureTextEntry={true}
-            style={styles.input}
-            onChangeText={onUserNameChange}
-            value={username}
-          />
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.textStyle}>Password:</Text>
-            <Text style={styles.mandatoryFieldStyle}>*</Text>
-          </View>
-          <TextInput
-            secureTextEntry={true}
-            style={styles.input}
-            onChangeText={onPasswordChange}
-            value={password}
-          />
-          <View style={{flexDirection: 'row'}}>
-            <Text style={styles.textStyle}>Confirm Password:</Text>
-            <Text style={styles.mandatoryFieldStyle}>*</Text>
-          </View>
-          <TextInput
-            secureTextEntry={true}
-            style={styles.input}
-            onChangeText={onConfirmPasswordChange}
-            value={confirmPassword}
-          />
-        </SafeAreaView>
-        <View
-          style={{
-            flexDirection: "row",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <View style={styles.buttonStyle}>
-            <Button title="Register" onPress={handleRegister} />
-          </View>
-          <View style={styles.buttonStyle}>
-            <Button title="Reset" onPress={handleReset} />
+          >
+            <View style={styles.buttonStyle}>
+              <Button title="Register" onPress={handleRegister} />
+            </View>
+            <View style={styles.buttonStyle}>
+              <Button title="Reset" onPress={handleReset} />
+            </View>
           </View>
         </View>
-      </View>
       </ScrollView>
     </GestureHandlerRootView>
   );
